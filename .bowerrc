@@ -1,0 +1,10 @@
+{
+	"timeout": 120000,
+	"analytics": false,
+	"directory": "assets/js/lib",
+	"registry": {
+		"search": [
+			"https://bower.herokuapp.com"
+		]
+	}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery-numberRun插件实例</title>
+		<script type="text/javascript" src="../../assets/js/lib/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/lib/mustache/mustache.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/plugin/jquery-version.js"></script>
+		<script type="text/javascript" src="../../assets/js/plugin/jquery-plugin.js"></script>
+		<script type="text/javascript" src="../../assets/js/plugin/jquery-numberRun.js"></script>
+		<style>
+			body{font-family: 'Microsoft YaHei', 宋体;}
+			.cowboy-number-run .number-item{background: url(./images/numberrun/number_bg.png) no-repeat top center;}
+            .number-wrapper{color: #D6E0F9; font-size: 18px; background: #286890; width: 700px; height: 32px; line-height: 32px;}
+            .cowboy-number-run .number-list-wrapper{width: 20px; height: 27px; line-height: 27px; overflow: hidden; margin-left: 0px; +margin-left: 0px;}		
+		</style>
+	</head>
+	<body>
+		<div class="number-wrapper text-center real-number-wrapper" id="real-number-wrapper">
+			<span class="number-text">金融客户</span>
+			<strong class="inline-block" id="accountContainer"></strong>
+			<span class="number-text marin-left-offset">户，</span>
+			<span class="number-text marin-left-offset">交易额</span>
+			<strong class="inline-block" id="moneyContainer"></strong>
+			<span class="number-text marin-left-offset">元</span>		
+		</div>
+		<script type="text/javascript">
+			//手动跑动
+			var accountNumberRun = $("#accountContainer").numberRun({
+				value: 643,//数值
+				duration: 5000//动画时间
+			}).data("cowboyNumberRun");
+			setTimeout(function(){accountNumberRun.run();}, 1000);
+
+
+			//自动跑动
+			$("#moneyContainer").numberRun({
+				autoRun: true,//自动跑动
+				value: -6435210897.32//数值
+			});
+		</script>				
+	</body>
+</html>
