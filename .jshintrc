@@ -14,6 +14,7 @@
 	"globals": {
 		"define": true,
 		"require": true,
-		"console": true
+		"console": true,
+		"_CITY_DATA": true
 	}
 }

@@ -12,7 +12,6 @@
     }
 
     var document = window.document,
-        slice = Array.prototype.slice,
         hasOwnProperty = ( {} ).hasOwnProperty;
 
     //前缀名称
@@ -326,7 +325,6 @@
         _initComponent: function() {
             var id,
                 $target,
-                $targetInput,
                 that = this,
                 target = that._target;
 
@@ -419,7 +417,6 @@
                 $areaSelectorPop = that._$areaSelectorPop = $( TEMPLATE.areaSelectorPop ).appendTo( that._$body );
                 PROMISE.getCityPromise = $.getScript( that._remote.url.getCity ).done( function() {
                     var res,
-                        child,
                         children,
                         result = {},
                         results = [];
@@ -508,7 +505,6 @@
         _bindEventListener: function() {
             var that = this,
                 selector = that._containerId,
-                dropdownMenu = ".area-selector-dropdown-menu",
                 targetInput = ".auto-complete-target-" + selector,
                 eventCallbacks = that._eventCallbacks;
 
@@ -617,7 +613,6 @@
         _keyBoardNavigate: function( keyCode, e ) {
             var isUp,
                 $current,
-                scrollTop,
                 that = this,
                 $dropdownMenu,
                 $dropdownMenuItems;
@@ -827,7 +822,6 @@
          */
         _hideDropdownMenu: function( delay, excuteFunc, clear ) {
             var that = this,
-                delay = delay || 0,
                 hide = function() {
                     var instance = that._getAreaSelectorInstanceByIdx( that._$areaSelectorPop );
                     if ( !$.trim( instance._$targetInput.attr( "data-idv" ) ) && ( clear !== false ) ) {
@@ -837,6 +831,7 @@
                     instance = null;
                 };
 
+            delay = delay || 0;
             that._clearTimer( "hideDropdownMenuTimer" ); //先清空计时器
             if ( delay ) {
 
@@ -863,7 +858,7 @@
                 clearTimeout( TIMERS[ name ] );
                 TIMERS[ name ] = null;
             }else if ( name == null ) {
-                $.each( TIMERS, function( key, value ) {
+                $.each( TIMERS, function( key ) {
                     if ( TIMERS[ key ] ) {
                         clearTimeout( TIMERS[ key ] );
                         TIMERS[ key ] = null;
@@ -885,7 +880,7 @@
                 PROMISE[ name ].abort();
                 PROMISE[ name ] = null;
             }else if ( name == null ) {
-                $.each( PROMISE, function( key, value ) {
+                $.each( PROMISE, function( key ) {
                     if ( PROMISE[ key ] ) {
                         PROMISE[ key ].abort();
                         PROMISE[ key ] = null;
@@ -940,8 +935,7 @@
              * @return {[type]}         [description]
              */
             keydownInputbox: function( e, $target ) {
-                var isUp,
-                    keyCode = e.keyCode;
+                var keyCode = e.keyCode;
 
                 if ( keyCode === 13 ) {
 
@@ -990,7 +984,7 @@
                     keyCode = e.keyCode,
                     instance = that._getAreaSelectorInstanceByIdx( $target );
 
-                if ( KEY_BORAD_NAV[ keyCode ] || keyCode == 13 ) {
+                if ( KEY_BORAD_NAV[ keyCode ] || keyCode === 13 ) {
 
                     //特殊键盘值不予处理,交给keydownInputbox事件回调处理
                 } else {
@@ -1073,9 +1067,8 @@
              */
             selectTabNav: function( e, $target ) {
                 var $tab,
-                    opposite,
                     that = this,
-                    activeClassName = CLASS_NAME.ACTIVE_CLASS_NAME;
+                    activeClassName = CLASS_NAME.ACTIVE_CLASS_NAME,
                     target = $.trim( $target.data( "target" ) );
 
                 if ( !$target.hasClass( activeClassName ) ) {
@@ -1202,10 +1195,9 @@
             /**
              * 重置下拉菜单/区县选择弹层位置
              * @param  {[type]} e       [description]
-             * @param  {[type]} $target [description]
              * @return {[type]}         [description]
              */
-            resetPosition: function( e, $target ) {
+            resetPosition: function() {
                 var instance,
                     that = this;
 

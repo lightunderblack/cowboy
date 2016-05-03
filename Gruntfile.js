@@ -17,7 +17,7 @@ module.exports = function( grunt ) {
                 jshintrc: ".jshintrc"
             },
             plugin: {
-                src: "assets/js/plugin/*.js"
+                src: "assets/js/plugin/**/*.js"
             }
         },
 
