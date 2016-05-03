@@ -19,9 +19,10 @@ module.exports = function( config ) {
             included: false,
             served: true
         },
-        "assets/js/lib/jquery/jquery.js",
-        "assets/js/lib/jasmine-jquery/lib/jasmine-jquery.js",
-        "assets/js/lib/jasmine-ajax/lib/mock-ajax.js",
+        "bower_components/jquery/jquery.js",
+        "bower_components/mustache/mustache.min.js",
+        "bower_components/jasmine-jquery/lib/jasmine-jquery.js",
+        "bower_components/jasmine-ajax/lib/mock-ajax.js",
         "assets/js/plugin/jquery-version.js",
         "assets/js/plugin/jquery-plugin.js",
         "assets/js/plugin/**/*.js",
