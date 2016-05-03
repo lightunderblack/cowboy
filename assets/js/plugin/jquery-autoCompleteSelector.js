@@ -7,9 +7,9 @@
 }( this, function( $, Mustache ) {
     var fullName = "auto-complete-selector";
 
-	if ( $.cowboy.isPluginExisten( $.camelCase( fullName ) ) ) {
-		return;
-	}
+    if ( $.cowboy.isPluginExisten( $.camelCase( fullName ) ) ) {
+        return;
+    }
 
     var document = window.document,
         hasOwnProperty = ( {} ).hasOwnProperty;
