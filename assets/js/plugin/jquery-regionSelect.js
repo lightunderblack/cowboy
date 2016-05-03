@@ -8,6 +8,10 @@
 	//省市县级联菜单
 	var fullName = "region-select";
 
+    if ( $.cowboy.isPluginExisten( $.camelCase( fullName ) ) ) {
+        return;
+    }
+
 	//模板
 	var TEMPLATE = {
 		emptyOption: "<option value=\"\">请选择</option>",
